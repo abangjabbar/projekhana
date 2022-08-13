@@ -32,6 +32,7 @@
     <link href="<?= base_url(); ?>/assets/assets/css/style.css" rel="stylesheet">
 
 </head>
+
 <div class="header">
     <div class="container-fluid">
         <div class="row">
@@ -181,10 +182,6 @@
                                 <i class="ti-angle-down f-s-10"></i>
                             </span>
                             <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
-                                <div class="dropdown-content-heading">
-                                    <span class="text-left">Upgrade Now</span>
-                                    <p class="trial-day">30 Days Trail</p>
-                                </div>
                                 <div class="dropdown-content-body">
                                     <ul>
                                         <li>
@@ -193,7 +190,6 @@
                                                 <span>Profile</span>
                                             </a>
                                         </li>
-
                                         <li>
                                             <a href="#">
                                                 <i class="ti-email"></i>
@@ -206,15 +202,8 @@
                                                 <span>Setting</span>
                                             </a>
                                         </li>
-
                                         <li>
-                                            <a href="#">
-                                                <i class="ti-lock"></i>
-                                                <span>Lock Screen</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
+                                            <a href="<?= base_url('logout'); ?>">
                                                 <i class="ti-power-off"></i>
                                                 <span>Logout</span>
                                             </a>
@@ -239,83 +228,83 @@
                     <div class="logo"><a href="index.html">
                             <!-- <img src="assets/images/logo.png" alt="" /> --><span>CV Hana Citra Buana</span>
                         </a></div>
-                    <li class="label" style="background: #0033FF;">Main</li>
-                    <li><a class="sidebar-sub-toggle" style="background: #0033FF;"><i class="ti-home"></i> Dashboard <span class="badge badge-primary"></span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li class="label" style="background: #37517e;">Main</li>
+                    <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-home"></i> Dashboard <span class="badge badge-primary"></span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="#" style="background: #0033FF;">Dashboard 1</a></li>
-                            <li><a href="#" style="background: #0033FF;">Dashboard 2</a></li>
+                            <li><a href="#" style="background: #37517e;">Dashboard 1</a></li>
+                            <li><a href="#" style="background: #37517e;">Dashboard 2</a></li>
                         </ul>
                     </li>
-                    <li class="label" style="background: #0033FF;">Penjualan</li>
-                    <li><a class="sidebar-sub-toggle" style="background: #0033FF;"><i class="ti-bar-chart-alt"></i> Master Data <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li class="label" style="background: #37517e;">Penjualan</li>
+                    <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-bar-chart-alt"></i> Master Data <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="/manager/masterCustomer" style="background: #0033FF;">Master Customer</a></li>
-                            <li><a href="/manager/coba" style="background: #0033FF;">Master Sales</a></li>
+                            <li><a href="/manager/masterCustomer" style="background: #37517e;">Master Customer</a></li>
+                            <li><a href="/manager/coba" style="background: #37517e;">Master Sales</a></li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-sub-toggle" style="background: #0033FF;"><i class="ti-bar-chart-alt"></i> Utility <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-bar-chart-alt"></i> Utility <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="/manager/parameterBiaya" style="background: #0033FF;">Parameter Biaya</a></li>
-                            <li><a href="/manager/hitungHarga" style="background: #0033FF;">Hitung Harga</a></li>
-                            <li><a href="/manager/penawaranHarga" style="background: #0033FF;">Penawaran Harga</a></li>
+                            <li><a href="/manager/parameterBiaya" style="background: #37517e;">Parameter Biaya</a></li>
+                            <li><a href="/manager/hitungHarga" style="background: #37517e;">Hitung Harga</a></li>
+                            <li><a href="/manager/penawaranHarga" style="background: #37517e;">Penawaran Harga</a></li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-sub-toggle" style="background: #0033FF;"><i class="ti-bar-chart-alt"></i> Data Entry <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-bar-chart-alt"></i> Data Entry <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                             <li><a href="/manager/salesOrder" style="background: #0066FF;">Penjualan</a></li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-sub-toggle" style="background: #0033FF;"><i class="ti-bar-chart-alt"></i> Produksi <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-bar-chart-alt"></i> Produksi <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="chart-flot.html" style="background: #0033FF;">Daftar Penjulan/SO</a></li>
-                            <li><a href="chart-morris.html" style="background: #0033FF;">Daftar Penjualan/SO Per Sales </a></li>
-                            <li><a href="chartjs.html" style="background: #0033FF;">Outstanding Penjualan/SO</a></li>
-                            <li><a href="chartist.html" style="background: #0033FF;">Laporan Komisi</a></li>
+                            <li><a href="chart-flot.html" style="background: #37517e;">Daftar Penjulan/SO</a></li>
+                            <li><a href="chart-morris.html" style="background: #37517e;">Daftar Penjualan/SO Per Sales </a></li>
+                            <li><a href="chartjs.html" style="background: #37517e;">Outstanding Penjualan/SO</a></li>
+                            <li><a href="chartist.html" style="background: #37517e;">Laporan Komisi</a></li>
                         </ul>
                     </li>
-                    <li class="label" style="background: #0033FF;">Pembelian</li>
-                    <li><a class="sidebar-sub-toggle" style="background: #0033FF;"><i class="ti-bar-chart-alt"></i> Master Data <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li class="label" style="background: #37517e;">Pembelian</li>
+                    <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-bar-chart-alt"></i> Master Data <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="/pembelian/masterSupplier" style="background: #0033FF;">Master Supplier</a></li>
+                            <li><a href="/pembelian/masterSupplier" style="background: #37517e;">Master Supplier</a></li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-sub-toggle" style="background: #0033FF;"><i class="ti-bar-chart-alt"></i> Data Entry <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-bar-chart-alt"></i> Data Entry <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="/pembelian/pembelianSheetDenganSPK" style="background: #0033FF;">Pembelian Sheet Dengan SPK</a></li>
-                            <li><a href="/pembelian/pembelianSheetTanpaSPK" style="background: #0033FF;">Pembelian Sheet Tanpa SPK</a></li>
+                            <li><a href="/pembelian/pembelianSheetDenganSPK" style="background: #37517e;">Pembelian Sheet Dengan SPK</a></li>
+                            <li><a href="/pembelian/pembelianSheetTanpaSPK" style="background: #37517e;">Pembelian Sheet Tanpa SPK</a></li>
                         </ul>
                     </li>
-                    <li class="label" style="background: #0033FF;">Persediaan</li>
-                    <li><a class="sidebar-sub-toggle" style="background: #0033FF;"><i class="ti-bar-chart-alt"></i> Master Data <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li class="label" style="background: #37517e;">Persediaan</li>
+                    <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-bar-chart-alt"></i> Master Data <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a class="sidebar-sub-toggle" style="background: #0033FF;"><i class="ti-bar-chart-alt"></i> Sheet <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-bar-chart-alt"></i> Sheet <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                                 <ul>
-                                    <li><a href="/persediaan/kodeSheet" style="background: #0033FF;">Kode Sheet</a></li>
-                                    <li><a href="/persediaan/masterSheet" style="background: #0033FF;">Master Sheet</a></li>
+                                    <li><a href="/persediaan/kodeSheet" style="background: #37517e;">Kode Sheet</a></li>
+                                    <li><a href="/persediaan/masterSheet" style="background: #37517e;">Master Sheet</a></li>
                                 </ul>
                             </li>
-                            <li><a class="sidebar-sub-toggle" style="background: #0033FF;"><i class="ti-bar-chart-alt"></i>Box<span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-bar-chart-alt"></i>Box<span class="sidebar-collapse-icon ti-angle-down"></span></a>
                                 <ul>
-                                    <li><a href="/persediaan/typeBox" style="background: #0033FF;">Type Box</a></li>
-                                    <li><a href="/persediaan/masterBox" style="background: #0033FF;">Master Sheet</a></li>
+                                    <li><a href="/persediaan/typeBox" style="background: #37517e;">Type Box</a></li>
+                                    <li><a href="/persediaan/masterBox" style="background: #37517e;">Master Sheet</a></li>
                                 </ul>
                             </li>
-                            <li><a class="sidebar-sub-toggle" style="background: #0033FF;"><i class="ti-bar-chart-alt"></i>Master Harga Sheet<span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-bar-chart-alt"></i>Master Harga Sheet<span class="sidebar-collapse-icon ti-angle-down"></span></a>
                                 <ul>
-                                    <li><a href="/persediaan/groupHarga" style="background: #0033FF;">Group Harga</a></li>
-                                    <li><a href="/persediaan/masterBox" style="background: #0033FF;">Master Sheet</a></li>
+                                    <li><a href="/persediaan/groupHarga" style="background: #37517e;">Group Harga</a></li>
+                                    <li><a href="/persediaan/masterBox" style="background: #37517e;">Master Sheet</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-sub-toggle" style="background: #0033FF;"><i class="ti-bar-chart-alt"></i> Utility <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-bar-chart-alt"></i> Utility <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                             <li><a href="chart-flot.html">Parameter Biaya</a></li>
                             <li><a href="chart-morris.html">Hitung Harga</a></li>
                             <li><a href="chartjs.html">Penawaran Harga</a></li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-sub-toggle" style="background: #0033FF;"><i class="ti-bar-chart-alt"></i> Laporan <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-bar-chart-alt"></i> Laporan <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                             <li><a href="chart-flot.html">Daftar Penjulan/SO</a></li>
                             <li><a href="chart-morris.html">Daftar Penjualan/SO Per Sales </a></li>
@@ -323,21 +312,21 @@
                             <li><a href="chartist.html">Laporan Komisi</a></li>
                         </ul>
                     </li>
-                    <li class="label" style="background: #0033FF;">Produksi</li>
-                    <li><a class="sidebar-sub-toggle" style="background: #0033FF;"><i class="ti-bar-chart-alt"></i> Master Data <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li class="label" style="background: #37517e;">Produksi</li>
+                    <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-bar-chart-alt"></i> Master Data <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="" style="background: #0033FF;">Kode Sheet</a></li>
-                            <li><a href="" style="background: #0033FF;">Master Sheet</a></li>
+                            <li><a href="" style="background: #37517e;">Kode Sheet</a></li>
+                            <li><a href="" style="background: #37517e;">Master Sheet</a></li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-sub-toggle" style="background: #0033FF;"><i class="ti-bar-chart-alt"></i> SPK <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-bar-chart-alt"></i> SPK <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                             <li><a href="chart-flot.html">Parameter Biaya</a></li>
                             <li><a href="chart-morris.html">Hitung Harga</a></li>
                             <li><a href="chartjs.html">Penawaran Harga</a></li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-sub-toggle" style="background: #0033FF;"><i class="ti-bar-chart-alt"></i> BOX <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-bar-chart-alt"></i> BOX <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                             <li><a href="chart-flot.html">Daftar Penjulan/SO</a></li>
                             <li><a href="chart-morris.html">Daftar Penjualan/SO Per Sales </a></li>
@@ -345,12 +334,12 @@
                             <li><a href="chartist.html">Laporan Komisi</a></li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-sub-toggle" style="background: #0033FF;"><i class="ti-bar-chart-alt"></i> Laporan <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-bar-chart-alt"></i> Laporan <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                             <li><a href="chart-flot.html">Daftar Penjulan/SO</a></li>
                             <li><a href="chart-morris.html">Daftar Penjualan/SO Per Sales </a></li>
                             <li><a href="chartjs.html">Outstanding Penjualan/SO</a></li>
-                            <li><a href="chartist.html">Laporan Komisi</a></li>
+                            <li><a href="<?= base_url('logout'); ?>">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -363,6 +352,19 @@
     <link rel="stylesheet" href="/css/style.css">
 
     <?= $this->renderSection('content'); ?>
+
+    <!-- Footer -->
+    <div class="content-wrap">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer">
+                        <p><?= date('Y'); ?> © Hana Citra Buana. - <a href="#">hanacitrabuana</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- jquery vendor -->
     <script type="text/javascript" src="<?= base_url(); ?>/assets/assets/js/lib/jquery.min.js"></script>
@@ -413,6 +415,7 @@
     <script src="<?= base_url(); ?>/assets/js/jquery-3.6.0.js" type="text/javascript"></script>
     <script src="<?= base_url(); ?>/assets/js/bootstrap.js" type="text/javascript"></script>
     <script src="<?= base_url(); ?>/assets/js/jquery-ui.js" type="text/javascript"></script>
+
     <script type="text/javascript">
         $(document).ready(function() {
             $("#kodeSupplier").autocomplete({
@@ -422,6 +425,26 @@
                     $('[name="nama_supplier"]').val(ui.item.nama_supplier);
                     $('[name="waktu_pembayaran"]').val(ui.item.waktu_pembayaran);
                 },
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        function pilih_kode() {
+            var master_supplier_id = $("#master_supplier_id").val();
+            $.ajax({
+                url: "<?php echo base_url() ?>pembelian/autoComplete",
+                data: "master_supplier_id=" + master_supplier_id,
+                method: 'post',
+                dataType: 'json',
+                success: function(data) {
+                    $("#nama_supplier").val(data.nama_supplier_b);
+                }
+            });
+        }
+        $(function() {
+            $(document).ready(function() {
+                $('#master_supplier_id').select2()
             });
         });
     </script>

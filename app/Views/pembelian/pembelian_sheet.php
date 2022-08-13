@@ -2,8 +2,6 @@
 
 <?= $this->section('content'); ?>
 
-<?= $title; ?>
-
 <div class="content-wrap">
     <div class="container-fluid">
         <div class="row">
@@ -42,10 +40,10 @@
                                             <th width="150px">Tanggal</th>
                                             <th width="300px">Supplier</th>
                                             <th width="150px">Tanggal Kirim</th>
-                                            <th width="300px">Kode Harga</th>
-                                            <th width="300px">Kode Harga</th>
-                                            <th width="300px">Kode Harga</th>
-                                            <th width="300px">Aksi</th>
+                                            <th width="100px">Kode Harga</th>
+                                            <th width="100px">TOP</th>
+                                            <th width="300px">Keterangan</th>
+                                            <th width="50px">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -58,8 +56,8 @@
                                                 <td><?= $k->nama_supplier; ?></td>
                                                 <td><?= $k->tgl_kirim; ?></td>
                                                 <td><?= $k->kode_harga; ?></td>
-                                                <td><?= $k->kode_harga; ?></td>
-                                                <td><?= $k->kode_harga; ?></td>
+                                                <td><?= $k->waktu_pembayaran; ?></td>
+                                                <td><?= $k->keterangan_pembelian; ?></td>
                                                 <td>
                                                     <a href="<?= site_url('pembelian/' . $k->pembelian_sheet_id . '/editPembelianSheet'); ?>" class="btn btn-warning btn-sm"><i class="">edit</i></a>
                                                 </td>
@@ -70,13 +68,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="footer">
-                    <p>2022 © Hana Citra Buana. - <a href="#">hanacitrabuana</a></p>
                 </div>
             </div>
         </div>
