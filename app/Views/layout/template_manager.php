@@ -50,7 +50,7 @@
                             <i class="ti-bell"></i>
                             <div class="drop-down dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-content-heading">
-                                    <span class="text-left">Very Recent Notifications</span>
+                                    <span class="text-left">Recent Notifications</span>
                                 </div>
                                 <div class="dropdown-content-body">
                                     <ul>

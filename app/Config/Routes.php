@@ -35,7 +35,17 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Pembelian::index');
+$routes->get('/', 'Manager::index');
+
+$routes->get('/admin', 'Admin::index', ['filter' => 'role:admin']);
+$routes->get('/admin/index', 'Admin::index', ['filter' => 'role:admin']);
+$routes->get('/admin/(:num)', 'Admin::detail/$1', ['filter' => 'role:admin']);
+
+$routes->get('/manager', 'Manager::index', ['filter' => 'role:manager']);
+$routes->get('/manager/index', 'Manager::index', ['filter' => 'role:manager']);
+
+$routes->get('/produksi', 'Produksi::index', ['filter' => 'role:produksi']);
+$routes->get('/produksi/index', 'Produksi::index', ['filter' => 'role:produksi']);
 
 /*
  * --------------------------------------------------------------------

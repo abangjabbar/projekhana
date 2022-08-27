@@ -2,31 +2,31 @@
 
 namespace App\Controllers;
 
+use App\Models\PembelianSheetModel;
+use App\Models\MasterSupplierModel;
 
-class Admin extends BaseController
+class Manager extends BaseController
 {
-    protected $db, $builder;
+    protected $masterSupplierModel;
+    protected $pembelianSheetModel;
 
     public function __construct()
     {
-        $this->db = \Config\Database::connect();
-        $this->builder = $this->db->table('users');
+        $this->pembelianSheetModel = new pembelianSheetModel();
+        $this->masterSupplierModel = new MasterSupplierModel();
     }
+
 
     public function index()
     {
-        $data['title'] = 'User List';
-        // $users = new \Myth\Auth\Models\UserModel;
-        // $data['users'] = $users->findAll();
+        $pembelianSheet = $this->pembelianSheetModel->findAll();
 
-        $this->builder->select('users.id as userid, username, email, name');
-        $this->builder->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
-        $this->builder->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id');
-        $query = $this->builder->get();
+        $data = [
+            'title' => 'Manager',
+            'pembelianSheet' => $pembelianSheet
+        ];
 
-        $data['users'] = $query->getResult();
-
-        return view('admin/index', $data);
+        echo view('manager/index', $data);
     }
 
     public function detail($id = 0)
