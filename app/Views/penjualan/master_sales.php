@@ -51,7 +51,7 @@
                                             <th width="150px">Kota</th>
                                             <th width="150px">Provinsi</th>
                                             <th width="200px">Keterangan</th>
-                                            <th>Aksi</th>
+                                            <th width="150px" style="text-align: center;">Aksi</th>
                                         </thead>
                                         <tbody>
                                             <?php $i = 1; ?>
@@ -68,6 +68,11 @@
                                                     <td><?= $s->keterangan; ?></td>
                                                     <td>
                                                         <a href="<?= site_url('penjualan/editMasterSales/' . $s->sales_id); ?>" class="btn btn-sm btn-success">Detail</a>
+                                                        <form action="/penjualan/deleteMasterSales/<?= $s->sales_id; ?>" method="post" class="d-inline">
+                                                            <?= csrf_field(); ?>
+                                                            <input type="hidden" name="_method" value="DELETE">
+                                                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('apakah anda yakin');">Delete</button>
+                                                        </form>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>

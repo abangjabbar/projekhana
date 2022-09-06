@@ -66,6 +66,13 @@ class Penjualan extends BaseController
         return redirect()->to('penjualan/masterSales');
     }
 
+    public function deleteMasterSales($id = null)
+    {
+        $this->masterSalesModel->delete($id);
+        session()->setFlashdata('success', 'Data berhasil dihapus!');
+        return redirect()->to('penjualan/masterSales');
+    }
+
 
     public function masterCustomer()
     {

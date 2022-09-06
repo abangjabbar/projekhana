@@ -54,6 +54,13 @@ $routes->get('/penjualan/tambahMasterSales', 'Penjualan::tambahMasterSales', ['f
 $routes->add('/penjualan/simpanMasterSales', 'Penjualan::simpanMasterSales', ['filter' => 'role:manager']);
 $routes->add('/penjualan/editMasterSales/(.*)', 'Penjualan::editMasterSales/$1', ['filter' => 'role:manager']);
 $routes->put('/penjualan/updateMasterSales/(.*)', 'Penjualan::updateMasterSales/$1', ['filter' => 'role:manager']);
+$routes->delete('/penjualan/deleteMasterSales/(.*)', 'Penjualan::deleteMasterSales/$1');
+$routes->get('/penjualan/masterCustomer', 'Penjualan::masterCustomer', ['filter' => 'role:manager']);
+$routes->get('/penjualan/tambahMasterCustomer', 'Penjualan::tambahMasterCustomer', ['filter' => 'role:manager']);
+$routes->add('/penjualan/simpanMasterCustomer', 'Penjualan::simpanMasterCustomer', ['filter' => 'role:manager']);
+$routes->add('/penjualan/editMasterCustomer/(.*)', 'Penjualan::editMasterCustomer/$1', ['filter' => 'role:manager']);
+$routes->put('/penjualan/updateMasterCustomer/(.*)', 'Penjualan::updateMasterCustomer/$1', ['filter' => 'role:manager']);
+$routes->delete('/penjualan/deleteMasterCustomer/(.*)', 'Penjualan::deleteMasterCustomer/$1');
 
 /*
  * --------------------------------------------------------------------
