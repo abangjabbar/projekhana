@@ -38,7 +38,6 @@
                                 <ul>
                                     <li><a href="/penjualan/masterCustomer" style="background: #37517e;">Master Customer</a></li>
                                     <li><a href="/penjualan/masterSales" style="background: #37517e;">Master Sales</a></li>
-                                    <li><a href="<?= base_url('logout'); ?>">Logout</a></li>
                                 </ul>
                             </li>
                             <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-bar-chart-alt"></i> Utility <span class="sidebar-collapse-icon ti-angle-down"></span></a>
