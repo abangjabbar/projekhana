@@ -50,6 +50,8 @@ $routes->get('/produksi/index', 'Produksi::index', ['filter' => 'role:produksi']
 $routes->get('/penjualan', 'Penjualan::index', ['filter' => 'role:manager']);
 $routes->get('/penjualan/index', 'Penjualan::index', ['filter' => 'role:manager']);
 $routes->get('/penjualan/masterSales', 'Penjualan::masterSales', ['filter' => 'role:manager']);
+$routes->get('/penjualan/tambahMasterSales', 'Penjualan::tambahMasterSales', ['filter' => 'role:manager']);
+$routes->add('/penjualan/simpanMasterSales', 'Penjualan::simpanMasterSales', ['filter' => 'role:manager']);
 $routes->add('/penjualan/editMasterSales/(.*)', 'Penjualan::editMasterSales/$1', ['filter' => 'role:manager']);
 $routes->put('/penjualan/updateMasterSales/(.*)', 'Penjualan::updateMasterSales/$1', ['filter' => 'role:manager']);
 
