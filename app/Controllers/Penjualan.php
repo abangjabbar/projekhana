@@ -4,12 +4,17 @@ namespace App\Controllers;
 
 use App\Models\MasterSalesModel;
 use App\Models\MasterCustomerModel;
+use App\Models\ParameterBiayaModel;
+use App\Models\HargaJualModel;
 
 class Penjualan extends BaseController
 {
     protected $db, $builder;
     protected $masterSalesModel;
     protected $masterCustomerModel;
+    protected $parameterBiayaModel;
+    protected $hargaJualModel;
+    protected $helpers = ['form', 'url', 'html'];
 
     public function __construct()
     {
@@ -17,6 +22,8 @@ class Penjualan extends BaseController
         $this->builder = $this->db->table('users');
         $this->masterSalesModel = new MasterSalesModel();
         $this->masterCustomerModel = new MasterCustomerModel();
+        $this->parameterBiayaModel = new ParameterBiayaModel();
+        $this->hargaJualModel = new HargaJualModel();
     }
 
     public function masterSales()
@@ -78,9 +85,130 @@ class Penjualan extends BaseController
     {
         $data = [
             'title' => 'Master Customer',
-            'customer' => $this->masterCustomer->findAll()
+            'customer' => $this->masterCustomerModel->getAll()
         ];
 
         echo view('penjualan/master_customer', $data);
+    }
+
+    public function tambahMasterCustomer()
+    {
+        $data = [
+            'title' => 'Tambah Customer Baru',
+            'sales' => $this->masterSalesModel->findAll()
+        ];
+
+        echo view('penjualan/tambah_master_customer', $data);
+    }
+
+    public function simpanMasterCustomer()
+    {
+        $data = $this->request->getPost();
+        $this->masterCustomerModel->insert($data);
+        session()->setFlashdata('success', 'Data berhasil ditambahkan!');
+        return redirect()->to('penjualan/masterCustomer');
+    }
+
+    public function editMasterCustomer($id = null)
+    {
+        $masterCustomer = $this->masterCustomerModel->find($id);
+        $sales = $this->masterSalesModel->findAll();
+        $data['title'] = 'Edit Penawaran Harga';
+        if (is_object($masterCustomer)) {
+            $data['masterCustomer'] = $masterCustomer;
+            $data['sales'] = $sales;
+            return view('penjualan/edit_master_customer', $data);
+        } else {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+    }
+
+    public function updateMasterCustomer($id = null)
+    {
+        $data = $this->request->getPost();
+        $this->masterCustomerModel->update($id, $data);
+        session()->setFlashdata('success', 'Data berhasil diubah!');
+        return redirect()->to('penjualan/masterCustomer');
+    }
+
+    public function deleteMasterCustomer($id = null)
+    {
+        $this->masterCustomerModel->delete($id);
+        session()->setFlashdata('success', 'Data berhasil dihapus!');
+        return redirect()->to('penjualan/masterCustomer');
+    }
+
+    public function parameterBiaya()
+    {
+        $data = [
+            'title' => 'Parameter Biaya',
+            'parameter' => $this->parameterBiayaModel->findAll()
+        ];
+
+        echo view('penjualan/parameter_biaya', $data);
+    }
+
+    public function tambahParameterBiaya()
+    {
+        $data = [
+            'title' => 'Tambah Parameter Biaya',
+            'sales' => $this->parameterBiayaModel->findAll()
+        ];
+
+        echo view('penjualan/tambah_parameter_biaya', $data);
+    }
+
+    public function simpanParameterBiaya()
+    {
+        $data = $this->request->getPost();
+        $this->parameterBiayaModel->insert($data);
+        session()->setFlashdata('success', 'Data berhasil ditambahkan!');
+        return redirect()->to('penjualan/parameterBiaya');
+    }
+
+    public function editParameterBiaya($id = null)
+    {
+        $parameterBiaya = $this->parameterBiayaModel->find($id);
+        $data['title'] = 'Edit Penawaran Harga';
+        if (is_object($parameterBiaya)) {
+            $data['parameterBiaya'] = $parameterBiaya;
+            return view('penjualan/edit_parameter_biaya', $data);
+        } else {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+    }
+
+    public function updateParameterBiaya($id = null)
+    {
+        $data = $this->request->getPost();
+        $this->parameterBiayaModel->update($id, $data);
+        session()->setFlashdata('success', 'Data berhasil diubah!');
+        return redirect()->to('penjualan/parameterBiaya');
+    }
+
+    public function deleteParameterBiaya($id = null)
+    {
+        $this->parameterBiayaModel->delete($id);
+        session()->setFlashdata('success', 'Data berhasil dihapus!');
+        return redirect()->to('penjualan/parameterBiaya');
+    }
+
+    public function hitungHarga()
+    {
+        $data = [
+            'title' => 'Hitung Harga',
+            'hargaJual' => $this->hargaJualModel->findAll()
+        ];
+
+        echo view('penjualan/hitung_harga', $data);
+    }
+
+    public function tambahHitungHarga()
+    {
+        $data = [
+            'title' => 'Tambah Hitung Harga'
+        ];
+
+        echo view('penjualan/tambah_hitung_harga', $data);
     }
 }

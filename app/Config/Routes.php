@@ -47,21 +47,37 @@ $routes->get('/manager/index', 'Manager::index', ['filter' => 'role:manager']);
 $routes->get('/produksi', 'Produksi::index', ['filter' => 'role:produksi']);
 $routes->get('/produksi/index', 'Produksi::index', ['filter' => 'role:produksi']);
 
+//PENJUALAN
 $routes->get('/penjualan', 'Penjualan::index', ['filter' => 'role:manager']);
 $routes->get('/penjualan/index', 'Penjualan::index', ['filter' => 'role:manager']);
+//PENJUALAN -> Master Sales
 $routes->get('/penjualan/masterSales', 'Penjualan::masterSales', ['filter' => 'role:manager']);
 $routes->get('/penjualan/tambahMasterSales', 'Penjualan::tambahMasterSales', ['filter' => 'role:manager']);
 $routes->add('/penjualan/simpanMasterSales', 'Penjualan::simpanMasterSales', ['filter' => 'role:manager']);
 $routes->add('/penjualan/editMasterSales/(.*)', 'Penjualan::editMasterSales/$1', ['filter' => 'role:manager']);
 $routes->put('/penjualan/updateMasterSales/(.*)', 'Penjualan::updateMasterSales/$1', ['filter' => 'role:manager']);
 $routes->delete('/penjualan/deleteMasterSales/(.*)', 'Penjualan::deleteMasterSales/$1');
+//PENJUALAN -> Master Customer
 $routes->get('/penjualan/masterCustomer', 'Penjualan::masterCustomer', ['filter' => 'role:manager']);
 $routes->get('/penjualan/tambahMasterCustomer', 'Penjualan::tambahMasterCustomer', ['filter' => 'role:manager']);
 $routes->add('/penjualan/simpanMasterCustomer', 'Penjualan::simpanMasterCustomer', ['filter' => 'role:manager']);
 $routes->add('/penjualan/editMasterCustomer/(.*)', 'Penjualan::editMasterCustomer/$1', ['filter' => 'role:manager']);
 $routes->put('/penjualan/updateMasterCustomer/(.*)', 'Penjualan::updateMasterCustomer/$1', ['filter' => 'role:manager']);
 $routes->delete('/penjualan/deleteMasterCustomer/(.*)', 'Penjualan::deleteMasterCustomer/$1');
-
+//PENJUALAN -> Parameter Biaya
+$routes->get('/penjualan/parameterBiaya', 'Penjualan::parameterBiaya', ['filter' => 'role:manager']);
+$routes->get('/penjualan/tambahParameterBiaya', 'Penjualan::tambahParameterBiaya', ['filter' => 'role:manager']);
+$routes->add('/penjualan/simpanParameterBiaya', 'Penjualan::simpanParameterBiaya', ['filter' => 'role:manager']);
+$routes->add('/penjualan/editParameterBiaya/(.*)', 'Penjualan::editParameterBiaya/$1', ['filter' => 'role:manager']);
+$routes->put('/penjualan/updateParameterBiaya/(.*)', 'Penjualan::updateParameterBiaya/$1', ['filter' => 'role:manager']);
+$routes->delete('/penjualan/deleteParameterBiaya/(.*)', 'Penjualan::deleteParameterBiaya/$1');
+//PENJUALAN -> Hitunga Harga
+$routes->get('/penjualan/hitungHarga', 'Penjualan::hitungHarga', ['filter' => 'role:manager']);
+$routes->get('/penjualan/tambahHitungHarga', 'Penjualan::tambahHitungHarga', ['filter' => 'role:manager']);
+$routes->add('/penjualan/simpanHitungHarga', 'Penjualan::simpanHitungHarga', ['filter' => 'role:manager']);
+$routes->add('/penjualan/editHitungHarga/(.*)', 'Penjualan::editHitungHarga/$1', ['filter' => 'role:manager']);
+$routes->put('/penjualan/updateHitungHarga/(.*)', 'Penjualan::updateHitungHarga/$1', ['filter' => 'role:manager']);
+$routes->delete('/penjualan/deleteHitungHarga/(.*)', 'Penjualan::deleteHitungHarga/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

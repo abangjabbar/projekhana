@@ -139,6 +139,10 @@
         });
     </script>
 
+    <script type="text/javascript">
+        var selectedValue = document.getElementById("ddlViewBy").value;
+    </script>
+
 </body>
 
 

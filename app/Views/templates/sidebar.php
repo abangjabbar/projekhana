@@ -42,7 +42,7 @@
                             </li>
                             <li><a class="sidebar-sub-toggle" style="background: #37517e;"><i class="ti-bar-chart-alt"></i> Utility <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                                 <ul>
-                                    <li><a href="/pembelian/pembelianSheetDenganSPK" style="background: #37517e;">Pembelian Sheet Dengan SPK</a></li>
+                                    <li><a href="/penjualan/parameterBiaya" style="background: #37517e;">Parameter Biaya</a></li>
                                     <li><a href="/pembelian/pembelianSheetTanpaSPK" style="background: #37517e;">Pembelian Sheet Tanpa SPK</a></li>
                                     <li><a href="<?= base_url('logout'); ?>">Logout</a></li>
                                 </ul>
