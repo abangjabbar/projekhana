@@ -6,6 +6,9 @@ use App\Models\MasterSalesModel;
 use App\Models\MasterCustomerModel;
 use App\Models\ParameterBiayaModel;
 use App\Models\HargaJualModel;
+use App\Models\PenawaranHargaModel;
+use App\Models\SalesOrderModel;
+use App\Models\BarangModel;
 
 class Penjualan extends BaseController
 {
@@ -14,6 +17,9 @@ class Penjualan extends BaseController
     protected $masterCustomerModel;
     protected $parameterBiayaModel;
     protected $hargaJualModel;
+    protected $penawaranHargaModel;
+    protected $salesOrderModel;
+    protected $barangModel;
     protected $helpers = ['form', 'url', 'html'];
 
     public function __construct()
@@ -24,6 +30,9 @@ class Penjualan extends BaseController
         $this->masterCustomerModel = new MasterCustomerModel();
         $this->parameterBiayaModel = new ParameterBiayaModel();
         $this->hargaJualModel = new HargaJualModel();
+        $this->penawaranHargaModel = new PenawaranHargaModel();
+        $this->salesOrderModel = new SalesOrderModel();
+        $this->barangModel = new BarangModel();
     }
 
     public function masterSales()
@@ -210,5 +219,75 @@ class Penjualan extends BaseController
         ];
 
         echo view('penjualan/tambah_hitung_harga', $data);
+    }
+
+    public function penawaranHarga()
+    {
+        $data = [
+            'title' => 'Penawaran Harga',
+            'penawaranHarga'  => $this->penawaranHargaModel->findAll()
+        ];
+
+        echo view('penjualan/penawaran_harga', $data);
+    }
+
+    public function tambahPenawaranHarga()
+    {
+        $data = [
+            'title' => 'Tambah Penawaran Harga'
+        ];
+
+        echo view('penjualan/tambah_penawaran_harga', $data);
+    }
+
+    public function salesOrder()
+    {
+        $data = [
+            'title' => 'Penjualan',
+            'salesOrder' => $this->salesOrderModel->findAll()
+        ];
+
+        echo view('penjualan/sales_order', $data);
+    }
+
+    public function simpanSalesOrder()
+    {
+        $data = $this->request->getPost();
+        $this->salesOrderModel->insert($data);
+        session()->setFlashdata('success', 'Data berhasil ditambahkan!');
+
+        $salesOrderId = $this->salesOrderModel->insertID;
+        return redirect()->to('penjualan/tambahSalesOrder/' .  $salesOrderId);
+    }
+
+    public function tambahSalesOrder($salesOrderId = null)
+    {
+
+        $salesOrder = $this->salesOrderModel->find($salesOrderId);
+        $data['title'] = 'Tambah Sales Order';
+        if (is_object($salesOrder)) {
+            $data['salesOrder'] = $this->salesOrderModel->find($salesOrderId);
+            $data['barang'] = $this->barangModel->findAll();
+            return view('penjualan/tambah_sales_order', $data);
+        } else {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+    }
+    public function updateSalesOrder($salesOrderId = null)
+    {
+        $data = $this->request->getPost();
+        $this->salesOrderModel->update($salesOrderId, $data);
+        session()->setFlashdata('success', 'Data berhasil diedit.');
+        return redirect()->to('penjualan/tambahSalesOrder/' . $salesOrderId);
+    }
+
+    public function simpanBarang()
+    {
+        $data = $this->request->getPost();
+        $this->barangModel->insert($data);
+        session()->setFlashdata('success', 'Data berhasil ditambahkan!');
+
+        $salesOrderId = $this->salesOrderModel->insertID;
+        return redirect()->to('penjualan/salesOrder' . $salesOrderId);
     }
 }

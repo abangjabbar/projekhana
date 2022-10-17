@@ -71,13 +71,27 @@ $routes->add('/penjualan/simpanParameterBiaya', 'Penjualan::simpanParameterBiaya
 $routes->add('/penjualan/editParameterBiaya/(.*)', 'Penjualan::editParameterBiaya/$1', ['filter' => 'role:manager']);
 $routes->put('/penjualan/updateParameterBiaya/(.*)', 'Penjualan::updateParameterBiaya/$1', ['filter' => 'role:manager']);
 $routes->delete('/penjualan/deleteParameterBiaya/(.*)', 'Penjualan::deleteParameterBiaya/$1');
-//PENJUALAN -> Hitunga Harga
+//PENJUALAN -> Hitung Harga
 $routes->get('/penjualan/hitungHarga', 'Penjualan::hitungHarga', ['filter' => 'role:manager']);
 $routes->get('/penjualan/tambahHitungHarga', 'Penjualan::tambahHitungHarga', ['filter' => 'role:manager']);
 $routes->add('/penjualan/simpanHitungHarga', 'Penjualan::simpanHitungHarga', ['filter' => 'role:manager']);
 $routes->add('/penjualan/editHitungHarga/(.*)', 'Penjualan::editHitungHarga/$1', ['filter' => 'role:manager']);
 $routes->put('/penjualan/updateHitungHarga/(.*)', 'Penjualan::updateHitungHarga/$1', ['filter' => 'role:manager']);
 $routes->delete('/penjualan/deleteHitungHarga/(.*)', 'Penjualan::deleteHitungHarga/$1');
+//PENJUALAN -> Penawaran Harga
+$routes->get('/penjualan/penawaranHarga', 'Penjualan::penawaranHarga', ['filter' => 'role:manager']);
+$routes->get('/penjualan/tambahPenawaranHarga', 'Penjualan::tambahPenawaranHarga', ['filter' => 'role:manager']);
+$routes->add('/penjualan/simpanPenawaranHarga', 'Penjualan::simpanPenawaranHarga', ['filter' => 'role:manager']);
+$routes->add('/penjualan/editPenawaranHarga/(.*)', 'Penjualan::editPenawaranHarga/$1', ['filter' => 'role:manager']);
+$routes->put('/penjualan/updatePenawaranHarga/(.*)', 'Penjualan::updatePenawaranHarga/$1', ['filter' => 'role:manager']);
+$routes->delete('/penjualan/deletePenawaranHarga/(.*)', 'Penjualan::deletePenawaranHarga/$1');
+//PENJUALAN -> Sales Order
+$routes->get('/penjualan/salesOrder', 'Penjualan::salesOrder', ['filter' => 'role:manager']);
+$routes->get('/penjualan/tambahSalesOrder/(.*)', 'Penjualan::tambahSalesOrder/$1', ['filter' => 'role:manager']);
+$routes->add('/penjualan/simpanSalesOrder', 'Penjualan::simpanSalesOrder', ['filter' => 'role:manager']);
+$routes->put('/penjualan/updateSalesOrder/(.*)', 'Penjualan::updateSalesOrder/$1', ['filter' => 'role:manager']);
+$routes->add('/penjualan/editSalesOrder/(.*)', 'Penjualan::editSalesOrder/$1', ['filter' => 'role:manager']);
+$routes->delete('/penjualan/deleteSalesOrder/(.*)', 'Penjualan::deleteSalesOrder/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

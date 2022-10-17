@@ -143,6 +143,56 @@
         var selectedValue = document.getElementById("ddlViewBy").value;
     </script>
 
+    <!--JQuery untuk modal view tamba_sales_order -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(document).on('click', '#select', function() {
+                var barang_id = $(this).data("id");
+                var kode = $(this).data("kode");
+                var nama = $(this).data("nama");
+                var ukuran = $(this).data("ukuran");
+                var satuan = $(this).data("satuan");
+                $('#id_barang').val(barang_id);
+                $('#kode_barang').val(kode);
+                $('#nama_barang').val(nama);
+                $('#ukuran_barang').val(ukuran);
+                $('#satuan_barang').val(satuan);
+                $('#modal-item').modal('hide');
+            })
+        })
+    </script>
+
+    <!--JQuery untuk update sales Order pada halaman penjualan/tambahSalesOrder -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#update').click(function() {
+                const href = window.location.href;
+                $.ajax({
+                    url: "<?php echo base_url(); ?>penjualan/updateSalesOrder",
+                    method: "POST",
+                    data: {
+                        salesOrderId: href.substring(href.lastIndexOf('/') + 1),
+                        nomor_so: $('#nomor_so').val(),
+                        tanggal_so: $('#tanggal_so').val(),
+                        tanggal_kirim: $('#tanggal_kirim').val(),
+                        alamat_kirim: $('#alamat_kirim').val(),
+                        keterangan: $('#keterangan').val(),
+                        nomor_po: $('#nomor_po').val(),
+                        tanggal_po: $('#tanggal_po').val(),
+                        id_customer: $('#id_customer').val(),
+                        id_sales: $('#id_sales').val(),
+                        ppn: $('#ppn').val(),
+                        top: $('#top').val()
+                    },
+                    success: function() {
+                        alert("Order information updated!")
+                    }
+                })
+            });
+        });
+    </script>
+
+
 </body>
 
 

@@ -33,7 +33,7 @@ textarea { font-size: 12px; }
     border-collapse: separate;
     border-spacing: 0px;
     min-width: max-content;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   th {
@@ -43,7 +43,7 @@ textarea { font-size: 12px; }
     background-color:#778eeb;
     color: rgba(0, 0, 0, 0.861);
     text-align: center;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .table-wrapper {
