@@ -108,6 +108,19 @@
                         </div>
                     </form>
                     <hr>
+                    <!-- <div class="row">
+                        <div class="col-5">
+                            <div class="row">
+                                <div class="form-group input-group">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah-barang">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
                     <div class="row">
                         <div class="col-5">
                             <div class="row">
@@ -133,29 +146,87 @@
                                     <th>Qty</th>
                                     <th>Harga</th>
                                     <th>Total Harga</th>
+                                    <th>Aksi</th>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <input type="hidden" name="barang_id" id="id_barang">
-                                        <input type="text" name="kode_barang" id="kode_barang" class="form-control input-sm" readonly>
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control input-sm" name="nama_barang" id="nama_barang" readonly>
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control input-sm" name="ukuran_barang" id="ukuran_barang" readonly>
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control input-sm" name="satuan_barang" id="satuan_barang" readonly>
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control input-sm" name="jumlah">
-                                    </td>
-                                </tr>
+                                <form action="<?= site_url('penjualan/simpanBarang/' . $salesOrder->sales_order_id); ?>" method="post">
+                                    <?= csrf_field(); ?>
+                                    <?php foreach ($salesOrderBarang as $c) : ?>
+                                        <tr>
+                                            <td>
+                                                <input value="<?= $c->kode_barang; ?>" type="text" name="kode_barang" id="kode_barang" class="form-control input-sm" readonly>
+                                            </td>
+                                            <td>
+                                                <input value="<?= $c->nama_barang; ?>" type="text" class="form-control input-sm" name="nama_barang" id="nama_barang" readonly>
+                                            </td>
+                                            <td>
+                                                <input value="<?= $c->ukuran_barang; ?>" type="text" class="form-control input-sm" name="ukuran_barang" id="ukuran_barang" readonly>
+                                            </td>
+                                            <td>
+                                                <input value="<?= $c->satuan_barang; ?>" type="text" class="form-control input-sm" name="satuan_barang" id="satuan_barang" readonly>
+                                            </td>
+                                            <td>
+                                                <button type="submit" class="btn btn-sm btn-info">Simpan</button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </form>
                             </table>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="tambah-barang" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="tambah-barangLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tambah-barangLabel">Modal title</h5>
+            </div>
+            <div class="modal-body table-responsive">
+                <table class="table table-primary table-striped" id="table1">
+                    <thead>
+                        <tr>
+                            <th>Kode Barang</th>
+                            <th>Nama Barang</th>
+                            <th>Ukuran</th>
+                            <th>Satuan</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <form action="<?= site_url('penjualan/simpanBarang/' . $salesOrder->sales_order_id); ?>" method="post">
+                            <?php foreach ($barang as $c) : ?>
+                                <tr>
+                                    <td><?= $c->kode; ?>
+                                        <input class="form-control" type="hidden" name="kode_barang" disabled>
+                                    </td>
+                                    <td><?= $c->nama; ?>
+                                        <input class="form-control" type="hidden" name="nama_barang" disabled>
+                                    </td>
+                                    <td><?= $c->ukuran; ?>
+                                        <input class="form-control" type="hidden" name="ukuran_barang" disabled>
+                                    </td>
+                                    <td><?= $c->satuan; ?>
+                                        <input class="form-control" type="hidden" name="satuan_barang" disabled>
+                                    </td>
+                                    <td>
+                                        <button type="submit" class="btn btn-sm btn-info">
+                                            <i class="fa fa-check"></i>Select
+                                        </button>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </form>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
             </div>
         </div>
     </div>

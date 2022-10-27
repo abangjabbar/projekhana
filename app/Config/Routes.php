@@ -90,6 +90,7 @@ $routes->get('/penjualan/salesOrder', 'Penjualan::salesOrder', ['filter' => 'rol
 $routes->get('/penjualan/tambahSalesOrder/(.*)', 'Penjualan::tambahSalesOrder/$1', ['filter' => 'role:manager']);
 $routes->add('/penjualan/simpanSalesOrder', 'Penjualan::simpanSalesOrder', ['filter' => 'role:manager']);
 $routes->put('/penjualan/updateSalesOrder/(.*)', 'Penjualan::updateSalesOrder/$1', ['filter' => 'role:manager']);
+$routes->add('/penjualan/simpanBarang/(.*)', 'Penjualan::simpanBarang/$1', ['filter' => 'role:manager']);
 $routes->add('/penjualan/editSalesOrder/(.*)', 'Penjualan::editSalesOrder/$1', ['filter' => 'role:manager']);
 $routes->delete('/penjualan/deleteSalesOrder/(.*)', 'Penjualan::deleteSalesOrder/$1');
 /*

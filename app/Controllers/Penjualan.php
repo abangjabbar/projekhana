@@ -9,6 +9,7 @@ use App\Models\HargaJualModel;
 use App\Models\PenawaranHargaModel;
 use App\Models\SalesOrderModel;
 use App\Models\BarangModel;
+use App\Models\SalesOrderBarangModel;
 
 class Penjualan extends BaseController
 {
@@ -20,6 +21,7 @@ class Penjualan extends BaseController
     protected $penawaranHargaModel;
     protected $salesOrderModel;
     protected $barangModel;
+    protected $salesOrderBarangModel;
     protected $helpers = ['form', 'url', 'html'];
 
     public function __construct()
@@ -33,6 +35,7 @@ class Penjualan extends BaseController
         $this->penawaranHargaModel = new PenawaranHargaModel();
         $this->salesOrderModel = new SalesOrderModel();
         $this->barangModel = new BarangModel();
+        $this->salesOrderBarangModel = new salesOrderBarangModel();
     }
 
     public function masterSales()
@@ -268,6 +271,7 @@ class Penjualan extends BaseController
         if (is_object($salesOrder)) {
             $data['salesOrder'] = $this->salesOrderModel->find($salesOrderId);
             $data['barang'] = $this->barangModel->findAll();
+            $data['salesOrderBarang'] = $this->salesOrderBarangModel->findAll();
             return view('penjualan/tambah_sales_order', $data);
         } else {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
@@ -281,13 +285,20 @@ class Penjualan extends BaseController
         return redirect()->to('penjualan/tambahSalesOrder/' . $salesOrderId);
     }
 
-    public function simpanBarang()
+    public function simpanBarang($salesOrderId = null)
     {
-        $data = $this->request->getPost();
-        $this->barangModel->insert($data);
-        session()->setFlashdata('success', 'Data berhasil ditambahkan!');
+        $data['salesOrderId'] = $salesOrderId;
+        $this->salesOrderBarangModel->save([
+            'id_sales_order' => $salesOrderId,
+            'kode_barang' => $this->request->getVar('kode_barang'),
+            'nama_barang' => $this->request->getVar('nama_barang'),
+            'ukuran_barang' => $this->request->getVar('ukuran_barang'),
+            'satuan_barang' => $this->request->getVar('satuan_barang'),
+            'jumlah' => $this->request->getVar('jumlah'),
+            'harga_barang' => $this->request->getVar('harga_barang'),
+            'total_harga' => $this->request->getVar('total_harga'),
+        ]);
 
-        $salesOrderId = $this->salesOrderModel->insertID;
-        return redirect()->to('penjualan/salesOrder' . $salesOrderId);
+        return redirect()->to('penjualan/tambahSalesOrder/' . $salesOrderId);
     }
 }
