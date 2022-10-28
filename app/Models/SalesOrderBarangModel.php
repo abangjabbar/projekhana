@@ -21,22 +21,11 @@ class SalesOrderBarangModel extends Model
         'total_harga'
     ];
 
-    public function update_sales_order($input)
+    public function getSalesOrderBarang($salesOrderId)
     {
-        $data = [
-            "nomor_so" => $input->post('nomor_so'),
-            "tanggal_so" => $input->post('tanggal_so'),
-            "tanggal_kirim" => $input->post('tanggal_kirim'),
-            "alamat_kirim" => $input->post('alamat_kirim'),
-            "keterangan" => $input->post('keterangan'),
-            "nomor_po" => $input->post('nomor_po'),
-            "tanggal_po" => $input->post('tanggal_po'),
-            "id_customer" => $input->post('id_customer'),
-            "id_sales" => $input->post('id_sales'),
-            "ppn" => $input->post('ppn'),
-            "top" => $input->post('top'),
-        ];
-        $this->builder->where('sales_order.sales_order_id', $input->post('salesOrderId'));
-        $this->builder->update($data);
+        $builder = $this->db->table('sales_order_barang');
+        $query = $builder->getWhere('sales_order_barang.sales_order_barang_id', $salesOrderId);
+        $query = $builder->get();
+        return $query->getResult();
     }
 }

@@ -35,30 +35,10 @@ class SalesOrderModel extends Model
         'status',
     ];
 
-    public function update_sales_order($input)
+    public function getSalesOrder($salesOrderId)
     {
-        $data = [
-            "nomor_so" => $input->post('nomor_so'),
-            "tanggal_so" => $input->post('tanggal_so'),
-            "tanggal_kirim" => $input->post('tanggal_kirim'),
-            "alamat_kirim" => $input->post('alamat_kirim'),
-            "keterangan" => $input->post('keterangan'),
-            "nomor_po" => $input->post('nomor_po'),
-            "tanggal_po" => $input->post('tanggal_po'),
-            "id_customer" => $input->post('id_customer'),
-            "id_sales" => $input->post('id_sales'),
-            "ppn" => $input->post('ppn'),
-            "top" => $input->post('top'),
-        ];
-        $this->builder->where('sales_order.sales_order_id', $input->post('salesOrderId'));
-        $this->builder->update($data);
-    }
-
-    public function getAll()
-    {
-        $builder = $this->db->table('master_customer');
-        $builder->select('*');
-        $builder->join('master_sales', 'master_sales.sales_id = master_customer.sales');
+        $builder = $this->db->table('sales_order');
+        $query = $builder->where('sales_order.sales_order_id', $salesOrderId);
         $query = $builder->get();
         return $query->getResult();
     }

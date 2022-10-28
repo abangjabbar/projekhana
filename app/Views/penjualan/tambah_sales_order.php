@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <form action="<?= site_url('penjualan/updateSalesOrder/' . $salesOrder->sales_order_id); ?>" method="post">
+                    <form action="<?= site_url('penjualan/updateSalesOrder/' . $salesOrder[0]->sales_order_id); ?>" method="post">
                         <?= csrf_field(); ?>
                         <input type="hidden" name="_method" value="PUT">
                         <div class="row">
@@ -36,31 +36,31 @@
                                 <div class="row">
                                     <label class="col-sm-5 control-label">No. Penjualan : * </label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control input-sm" id="nomor_so" name="nomor_so" value="<?= $salesOrder->nomor_so; ?>" required>
+                                        <input type="text" class="form-control input-sm" id="nomor_so" name="nomor_so" value="<?= $salesOrder[0]->nomor_so; ?>" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-5 control-label">Tanggal : * </label>
                                     <div class="col-sm-7">
-                                        <input type="date" class="form-control input-sm " id="tanggal_so" name="tanggal_so" value="<?= $salesOrder->tanggal_so; ?>" required>
+                                        <input type="date" class="form-control input-sm " id="tanggal_so" name="tanggal_so" value="<?= $salesOrder[0]->tanggal_so; ?>" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-5 control-label">Tanggal Kirim : * </label>
                                     <div class="col-sm-7">
-                                        <input type="date" class="form-control input-sm" id="tanggal_kirim" name="tanggal_kirim" value="<?= $salesOrder->tanggal_kirim; ?>" required>
+                                        <input type="date" class="form-control input-sm" id="tanggal_kirim" name="tanggal_kirim" value="<?= $salesOrder[0]->tanggal_kirim; ?>" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-5 control-label">Alamat Kirim : * </label>
                                     <div class="col-sm-7">
-                                        <textarea class="form-control" id="floatingTextarea2" style="height: 100px; font-size:12px;" id="alamat_kirim" name="alamat_kirim"><?= $salesOrder->alamat_kirim; ?></textarea>
+                                        <textarea class="form-control" id="floatingTextarea2" style="height: 100px; font-size:12px;" id="alamat_kirim" name="alamat_kirim"><?= $salesOrder[0]->alamat_kirim; ?></textarea>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-5 control-label">Keterangan: * </label>
                                     <div class="col-sm-7">
-                                        <textarea class="form-control" id="floatingTextarea2" style="height: 100px; font-size:12px;" id="keterangan" name="keterangan"><?= $salesOrder->keterangan; ?></textarea>
+                                        <textarea class="form-control" id="floatingTextarea2" style="height: 100px; font-size:12px;" id="keterangan" name="keterangan"><?= $salesOrder[0]->keterangan; ?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -68,37 +68,37 @@
                                 <div class="row">
                                     <label class="col-sm-4 control-label">PO Cust :</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control input-sm" id="nomor_po" name="nomor_po" value="<?= $salesOrder->nomor_po; ?>" required>
+                                        <input type="text" class="form-control input-sm" id="nomor_po" name="nomor_po" value="<?= $salesOrder[0]->nomor_po; ?>" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-4 control-label">Tanggal PO :</label>
                                     <div class="col-sm-8">
-                                        <input type="date" class="form-control input-sm " id="tanggal_po" name="tanggal_po" value="<?= $salesOrder->tanggal_po; ?>" required>
+                                        <input type="date" class="form-control input-sm " id="tanggal_po" name="tanggal_po" value="<?= $salesOrder[0]->tanggal_po; ?>" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-4 control-label form-text-font-size">Customer :</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control input-sm " id="id_customer" name="id_customer" value="<?= $salesOrder->id_customer; ?>" required>
+                                        <input type="text" class="form-control input-sm " id="id_customer" name="id_customer" value="<?= $salesOrder[0]->id_customer; ?>" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-4 control-label">Sales :</label>
                                     <div class="col-sm-8 mr-12">
-                                        <input type="text" class="form-control input-sm " id="id_sales" name="id_sales" value="<?= $salesOrder->id_sales; ?>" required>
+                                        <input type="text" class="form-control input-sm " id="id_sales" name="id_sales" value="<?= $salesOrder[0]->id_sales; ?>" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-4 control-label">PPN :</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control input-sm " id="ppn" name="ppn" value="<?= $salesOrder->ppn; ?>" required>
+                                        <input type="text" class="form-control input-sm " id="ppn" name="ppn" value="<?= $salesOrder[0]->ppn; ?>" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-4 control-label">Top :</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control input-sm" id="top" name="top" value="<?= $salesOrder->top; ?>" required>
+                                        <input type="text" class="form-control input-sm" id="top" name="top" value="<?= $salesOrder[0]->top; ?>" required>
                                     </div>
                                 </div>
                             </div>
@@ -148,27 +148,25 @@
                                     <th>Total Harga</th>
                                     <th>Aksi</th>
                                 </tr>
-                                <form action="<?= site_url('penjualan/simpanBarang/' . $salesOrder->sales_order_id); ?>" method="post">
+                                <form action="<?= site_url('penjualan/simpanBarang/' . $salesOrder[0]->sales_order_id); ?>" method="post">
                                     <?= csrf_field(); ?>
-                                    <?php foreach ($salesOrderBarang as $c) : ?>
-                                        <tr>
-                                            <td>
-                                                <input value="<?= $c->kode_barang; ?>" type="text" name="kode_barang" id="kode_barang" class="form-control input-sm" readonly>
-                                            </td>
-                                            <td>
-                                                <input value="<?= $c->nama_barang; ?>" type="text" class="form-control input-sm" name="nama_barang" id="nama_barang" readonly>
-                                            </td>
-                                            <td>
-                                                <input value="<?= $c->ukuran_barang; ?>" type="text" class="form-control input-sm" name="ukuran_barang" id="ukuran_barang" readonly>
-                                            </td>
-                                            <td>
-                                                <input value="<?= $c->satuan_barang; ?>" type="text" class="form-control input-sm" name="satuan_barang" id="satuan_barang" readonly>
-                                            </td>
-                                            <td>
-                                                <button type="submit" class="btn btn-sm btn-info">Simpan</button>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
+                                    <tr>
+                                        <td>
+                                            <input type="text" name="kode_barang" id="kode_barang" class="form-control input-sm" readonly>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control input-sm" name="nama_barang" id="nama_barang" readonly>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control input-sm" name="ukuran_barang" id="ukuran_barang" readonly>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control input-sm" name="satuan_barang" id="satuan_barang" readonly>
+                                        </td>
+                                        <td>
+                                            <button type="submit" class="btn btn-sm btn-info">Simpan</button>
+                                        </td>
+                                    </tr>
                                 </form>
                             </table>
                         </div>
@@ -198,7 +196,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <form action="<?= site_url('penjualan/simpanBarang/' . $salesOrder->sales_order_id); ?>" method="post">
+                        <form action="<?= site_url('penjualan/simpanBarang/' . $salesOrder[0]->sales_order_id); ?>" method="post">
                             <?php foreach ($barang as $c) : ?>
                                 <tr>
                                     <td><?= $c->kode; ?>

@@ -269,9 +269,9 @@ class Penjualan extends BaseController
         $salesOrder = $this->salesOrderModel->find($salesOrderId);
         $data['title'] = 'Tambah Sales Order';
         if (is_object($salesOrder)) {
-            $data['salesOrder'] = $this->salesOrderModel->find($salesOrderId);
+            $data['salesOrder'] = $this->salesOrderModel->getSalesOrder($salesOrderId);
             $data['barang'] = $this->barangModel->findAll();
-            $data['salesOrderBarang'] = $this->salesOrderBarangModel->findAll();
+            $data['salesOrderBarang'] = $this->salesOrderBarangModel->getSalesOrderBarang($data['salesOrder'][0]->sales_order_id);
             return view('penjualan/tambah_sales_order', $data);
         } else {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
