@@ -150,23 +150,25 @@
                                 </tr>
                                 <form action="<?= site_url('penjualan/simpanBarang/' . $salesOrder[0]->sales_order_id); ?>" method="post">
                                     <?= csrf_field(); ?>
-                                    <tr>
-                                        <td>
-                                            <input type="text" name="kode_barang" id="kode_barang" class="form-control input-sm" readonly>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control input-sm" name="nama_barang" id="nama_barang" readonly>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control input-sm" name="ukuran_barang" id="ukuran_barang" readonly>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control input-sm" name="satuan_barang" id="satuan_barang" readonly>
-                                        </td>
-                                        <td>
-                                            <button type="submit" class="btn btn-sm btn-info">Simpan</button>
-                                        </td>
-                                    </tr>
+                                    <?php foreach ($salesOrderBarang as $row) : ?>
+                                        <tr>
+                                            <td>
+                                                <input value="<?= $row->kode_barang; ?>" type="text" name="kode_barang" id="kode_barang" class="form-control input-sm" readonly>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-sm" name="nama_barang" id="nama_barang" readonly>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-sm" name="ukuran_barang" id="ukuran_barang" readonly>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-sm" name="satuan_barang" id="satuan_barang" readonly>
+                                            </td>
+                                            <td>
+                                                <button type="submit" class="btn btn-sm btn-info">Simpan</button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </form>
                             </table>
                         </div>

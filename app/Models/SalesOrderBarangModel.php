@@ -24,7 +24,7 @@ class SalesOrderBarangModel extends Model
     public function getSalesOrderBarang($salesOrderId)
     {
         $builder = $this->db->table('sales_order_barang');
-        $query = $builder->getWhere('sales_order_barang.sales_order_barang_id', $salesOrderId);
+        $query = $builder->where('sales_order_barang.id_sales_order', $salesOrderId);
         $query = $builder->get();
         return $query->getResult();
     }
