@@ -97,7 +97,7 @@ class Penjualan extends BaseController
     {
         $data = [
             'title' => 'Master Customer',
-            'customer' => $this->masterCustomerModel->getAll()
+            'customer' => $this->masterCustomerModel->findAll()
         ];
 
         echo view('penjualan/master_customer', $data);
@@ -247,7 +247,8 @@ class Penjualan extends BaseController
     {
         $data = [
             'title' => 'Penjualan',
-            'salesOrder' => $this->salesOrderModel->findAll()
+            'salesOrder' => $this->salesOrderModel->findAll(),
+            'masterCustomer' => $this->masterCustomerModel->findAll()
         ];
 
         echo view('penjualan/sales_order', $data);
@@ -296,7 +297,7 @@ class Penjualan extends BaseController
             'satuan_barang' => $this->request->getVar('satuan_barang'),
             'jumlah' => $this->request->getVar('jumlah'),
             'harga_barang' => $this->request->getVar('harga_barang'),
-            'total_harga' => $this->request->getVar('total_harga'),
+            'harga_total' => $this->request->getVar('harga_total'),
         ]);
 
         return redirect()->to('penjualan/tambahSalesOrder/' . $salesOrderId);

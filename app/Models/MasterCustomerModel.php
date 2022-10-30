@@ -34,13 +34,4 @@ class MasterCustomerModel extends Model
         'alamat_kirim2',
         'kontak_kirim2'
     ];
-
-    public function getAll()
-    {
-        $builder = $this->db->table('master_customer');
-        $builder->select('*');
-        $builder->join('master_sales', 'master_sales.sales_id = master_customer.sales');
-        $query = $builder->get();
-        return $query->getResult();
-    }
 }

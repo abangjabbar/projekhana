@@ -86,7 +86,7 @@
                                         <select class="form-control form-control-sm" name="sales">
                                             <option value="" hidden></option>
                                             <?php foreach ($sales as $s) : ?>
-                                                <option value="<?= $s->sales_id ?>"><?= $s->nama_sales; ?></option>
+                                                <option value="<?= $s->nama_sales ?>"><?= $s->nama_sales; ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>

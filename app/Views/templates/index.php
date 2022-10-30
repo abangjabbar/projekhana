@@ -162,35 +162,27 @@
         })
     </script>
 
-    <!--JQuery untuk update sales Order pada halaman penjualan/tambahSalesOrder -->
+    <!--JQuery untuk modal view tambah_customer pada halam salesOrder-->
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#update').click(function() {
-                const href = window.location.href;
-                $.ajax({
-                    url: "<?php echo base_url(); ?>penjualan/updateSalesOrder",
-                    method: "POST",
-                    data: {
-                        salesOrderId: href.substring(href.lastIndexOf('/') + 1),
-                        nomor_so: $('#nomor_so').val(),
-                        tanggal_so: $('#tanggal_so').val(),
-                        tanggal_kirim: $('#tanggal_kirim').val(),
-                        alamat_kirim: $('#alamat_kirim').val(),
-                        keterangan: $('#keterangan').val(),
-                        nomor_po: $('#nomor_po').val(),
-                        tanggal_po: $('#tanggal_po').val(),
-                        id_customer: $('#id_customer').val(),
-                        id_sales: $('#id_sales').val(),
-                        ppn: $('#ppn').val(),
-                        top: $('#top').val()
-                    },
-                    success: function() {
-                        alert("Order information updated!")
-                    }
-                })
-            });
-        });
+            $(document).on('click', '#selectCustomer', function() {
+                var customer_id = $(this).data("id");
+                var kode_customer = $(this).data("kode");
+                var nama_customer = $(this).data("nama");
+                var waktu_pembayaran = $(this).data("top");
+                var sales = $(this).data("sales");
+                var alamat_kirim1 = $(this).data("alamat");
+                $('#kode_customer').val(kode_customer);
+                $('#nama_customer').val(nama_customer);
+                $('#top').val(waktu_pembayaran);
+                $('#sales').val(sales);
+                $('#alamat_kirim').val(alamat_kirim1);
+                $('#modal-customer').modal('hide');
+            })
+        })
     </script>
+
+
 
 
 </body>

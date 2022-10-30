@@ -18,7 +18,7 @@ class SalesOrderBarangModel extends Model
         'satuan_barang',
         'jumlah',
         'harga_barang',
-        'total_harga'
+        'harga_total',
     ];
 
     public function getSalesOrderBarang($salesOrderId)

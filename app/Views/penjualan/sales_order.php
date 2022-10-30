@@ -68,7 +68,7 @@
                                                     <th scope="row"><?= $i++; ?></th>
                                                     <td style="text-align: center;"><?= $c->nomor_so; ?></td>
                                                     <td><?= $c->tanggal_so; ?></td>
-                                                    <td><?= $c->id_customer; ?></td>
+                                                    <td><?= $c->customer; ?></td>
                                                     <td><?= $c->nomor_po; ?></td>
                                                     <td><?= $c->tanggal_po; ?></td>
                                                     <td><?= $c->tanggal_kirim; ?></td>
@@ -136,13 +136,13 @@
                                 <div class="row">
                                     <label class="col-sm-5 control-label">Alamat Kirim : * </label>
                                     <div class="col-sm-7">
-                                        <textarea class="form-control" id="floatingTextarea2" style="height: 100px; font-size:12px;" name="alamat_kirim"></textarea>
+                                        <textarea class="form-control" style="height: 100px; font-size:12px;" id="alamat_kirim" name="alamat_kirim"></textarea>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-5 control-label">Keterangan: * </label>
                                     <div class="col-sm-7">
-                                        <textarea class="form-control" id="floatingTextarea2" style="height: 100px; font-size:12px;" name="keterangan"></textarea>
+                                        <textarea class="form-control" style="height: 100px; font-size:12px;" name="keterangan"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -162,25 +162,34 @@
                                 <div class="row">
                                     <label class="col-sm-4 control-label form-text-font-size">Customer :</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control input-sm " name="id_customer" required>
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modal-customer">
+                                            <i class="fa fa-sm fa-search"></i>
+                                        </button>
+                                        <input type="text" class="form-control input-sm" name="kode_customer" id="kode_customer" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-4 control-label">Nama Customer :</label>
+                                    <div class="col-sm-8 mr-12">
+                                        <input type="text" class="form-control input-sm " name="customer" id="nama_customer" readonly>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-4 control-label">Sales :</label>
                                     <div class="col-sm-8 mr-12">
-                                        <input type="text" class="form-control input-sm " name="id_sales" required>
+                                        <input type="text" class="form-control input-sm " name="sales" id="sales" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-4 control-label">Top :</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control input-sm" name="top" id="top" readonly>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-4 control-label">PPN :</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control input-sm " name="ppn" required>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-4 control-label">Top :</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control input-sm" name="top" required>
                                     </div>
                                 </div>
                             </div>
@@ -195,4 +204,49 @@
         </div>
     </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="modal-customer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-customerLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-customerLabel">Silahkan pilih customer</h5>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width="80px">Kode</th>
+                                <th>Nama Customer</th>
+                                <th>TOP</th>
+                                <th>Alamat Kirim</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($masterCustomer as $c) : ?>
+                                <tr>
+                                    <td><?= $c->kode_customer; ?></td>
+                                    <td><?= $c->nama_customer; ?></td>
+                                    <td><?= $c->waktu_pembayaran; ?></td>
+                                    <td><?= $c->alamat_kirim1; ?></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info" id="selectCustomer" data-id="<?= $c->customer_id; ?>" data-kode="<?= $c->kode_customer; ?>" data-nama="<?= $c->nama_customer; ?>" data-top="<?= $c->waktu_pembayaran; ?>" data-alamat="<?= $c->alamat_kirim1; ?>" data-sales="<?= $c->sales; ?>">
+                                            <i class="fa fa-check"></i>Select
+                                        </button>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <?= $this->endSection(); ?>

@@ -80,13 +80,13 @@
                                 <div class="row">
                                     <label class="col-sm-4 control-label form-text-font-size">Customer :</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control input-sm " id="id_customer" name="id_customer" value="<?= $salesOrder[0]->id_customer; ?>" required>
+                                        <input type="text" class="form-control input-sm " id="id_customer" name="customer" value="<?= $salesOrder[0]->customer; ?>" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-4 control-label">Sales :</label>
                                     <div class="col-sm-8 mr-12">
-                                        <input type="text" class="form-control input-sm " id="id_sales" name="id_sales" value="<?= $salesOrder[0]->id_sales; ?>" required>
+                                        <input type="text" class="form-control input-sm " id="id_sales" name="sales" value="<?= $salesOrder[0]->sales; ?>" required>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -103,178 +103,154 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary btn-primary">Update</button>
-                        </div>
+                        <button type="submit" class="btn btn-primary btn-primary">Update</button>
                     </form>
-                    <hr>
-                    <!-- <div class="row">
-                        <div class="col-5">
-                            <div class="row">
-                                <div class="form-group input-group">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah-barang">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
+                </div>
+                <hr>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="row">
+                                    <div class="form-group input-group">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-item">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div> -->
-                    <div class="row">
-                        <div class="col-5">
+                        <form action="<?= site_url('penjualan/simpanBarang/' . $salesOrder[0]->sales_order_id); ?>" method="post">
+                            <?= csrf_field(); ?>
                             <div class="row">
-                                <div class="form-group input-group">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-item">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
+                                <div class="col-sm-2">
+                                    <label for="inputEmail4" class="form-label">Kode Barang</label>
+                                    <input type="text" class="form-control input-sm" name="kode_barang" id="kode_barang" readonly>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="inputEmail4" class="form-label">Nama Barang</label>
+                                    <input type="text" class="form-control input-sm" name="nama_barang" id="nama_barang" readonly>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="inputEmail4" class="form-label">Ukuran</label>
+                                    <input type="text" class="form-control input-sm" name="ukuran_barang" id="ukuran_barang" readonly>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="inputEmail4" class="form-label">Satuan</label>
+                                    <input type="text" class="form-control input-sm" name="satuan_barang" id="satuan_barang" readonly>
                                 </div>
                             </div>
-                        </div>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <label for="inputEmail4" class="form-label">Kuantiatas</label>
+                                    <input type="text" class="form-control input-sm" name="jumlah">
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="inputEmail4" class="form-label">Harga</label>
+                                    <input type="text" class="form-control input-sm" name="harga_barang">
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="inputEmail4" class="form-label">Total Harga</label>
+                                    <input type="text" class="form-control input-sm" name="harga_total">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="row">
+                                        <div class="form-group input-group">
+                                            <span class="input-group-btn">
+                                                <button type="submit" class="btn btn-primary">
+                                                    simpan
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-12">
-                            <table>
-                                <tr>
-                                    <th>Kode Barang</th>
-                                    <th>Nama Barang</th>
-                                    <th>Ukuran</th>
-                                    <th>Satuan</th>
-                                    <th>Qty</th>
-                                    <th>Harga</th>
-                                    <th>Total Harga</th>
-                                    <th>Aksi</th>
-                                </tr>
-                                <form action="<?= site_url('penjualan/simpanBarang/' . $salesOrder[0]->sales_order_id); ?>" method="post">
-                                    <?= csrf_field(); ?>
-                                    <?php foreach ($salesOrderBarang as $row) : ?>
-                                        <tr>
-                                            <td>
-                                                <input value="<?= $row->kode_barang; ?>" type="text" name="kode_barang" id="kode_barang" class="form-control input-sm" readonly>
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control input-sm" name="nama_barang" id="nama_barang" readonly>
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control input-sm" name="ukuran_barang" id="ukuran_barang" readonly>
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control input-sm" name="satuan_barang" id="satuan_barang" readonly>
-                                            </td>
-                                            <td>
-                                                <button type="submit" class="btn btn-sm btn-info">Simpan</button>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </form>
-                            </table>
+                            <div class="table-wrapper">
+                                <div class="table-responsive">
+                                    <table>
+                                        <thead>
+                                            <th width="100px">Kode Barang</th>
+                                            <th width="250px">Nama Barang</th>
+                                            <th width="120px">Ukuran</th>
+                                            <th width="150px">Satuan</th>
+                                            <th width="300px">Jumlah</th>
+                                            <th width="150px">Harga</th>
+                                            <th width="150px">Total Harga</th>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($salesOrderBarang as $s) : ?>
+                                                <tr>
+                                                    <td><?= $s->kode_barang; ?></td>
+                                                    <td><?= $s->nama_barang; ?></td>
+                                                    <td><?= $s->ukuran_barang; ?></td>
+                                                    <td><?= $s->satuan_barang; ?></td>
+                                                    <td><?= $s->jumlah; ?></td>
+                                                    <td><?= $s->harga_barang; ?></td>
+                                                    <td><?= $s->harga_total; ?></td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Modal -->
-<div class="modal fade" id="tambah-barang" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="tambah-barangLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="tambah-barangLabel">Modal title</h5>
-            </div>
-            <div class="modal-body table-responsive">
-                <table class="table table-primary table-striped" id="table1">
-                    <thead>
-                        <tr>
-                            <th>Kode Barang</th>
-                            <th>Nama Barang</th>
-                            <th>Ukuran</th>
-                            <th>Satuan</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <form action="<?= site_url('penjualan/simpanBarang/' . $salesOrder[0]->sales_order_id); ?>" method="post">
+    <!-- Modal -->
+    <div class="modal fade" id="modal-item" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-itemLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-itemLabel">Modal title</h5>
+                </div>
+                <div class="modal-body table-responsive">
+                    <table class="table table-primary table-striped" id="table1">
+                        <thead>
+                            <tr>
+                                <th>Kode Barang</th>
+                                <th>Nama Barang</th>
+                                <th>Ukuran</th>
+                                <th>Satuan</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             <?php foreach ($barang as $c) : ?>
                                 <tr>
-                                    <td><?= $c->kode; ?>
-                                        <input class="form-control" type="hidden" name="kode_barang" disabled>
-                                    </td>
-                                    <td><?= $c->nama; ?>
-                                        <input class="form-control" type="hidden" name="nama_barang" disabled>
-                                    </td>
-                                    <td><?= $c->ukuran; ?>
-                                        <input class="form-control" type="hidden" name="ukuran_barang" disabled>
-                                    </td>
-                                    <td><?= $c->satuan; ?>
-                                        <input class="form-control" type="hidden" name="satuan_barang" disabled>
-                                    </td>
+                                    <td><?= $c->kode; ?></td>
+                                    <td><?= $c->nama; ?></td>
+                                    <td><?= $c->ukuran; ?></td>
+                                    <td><?= $c->satuan; ?></td>
                                     <td>
-                                        <button type="submit" class="btn btn-sm btn-info">
+                                        <button class="btn btn-sm btn-info" id="select" data-id="<?= $c->barang_id; ?>" data-kode="<?= $c->kode; ?>" data-nama="<?= $c->nama; ?>" data-ukuran="<?= $c->ukuran; ?>" data-satuan="<?= $c->satuan; ?>">
                                             <i class="fa fa-check"></i>Select
                                         </button>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
-                        </form>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="modal-item" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-itemLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modal-itemLabel">Modal title</h5>
-            </div>
-            <div class="modal-body table-responsive">
-                <table class="table table-primary table-striped" id="table1">
-                    <thead>
-                        <tr>
-                            <th>Kode Barang</th>
-                            <th>Nama Barang</th>
-                            <th>Ukuran</th>
-                            <th>Satuan</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($barang as $c) : ?>
-                            <tr>
-                                <td><?= $c->kode; ?></td>
-                                <td><?= $c->nama; ?></td>
-                                <td><?= $c->ukuran; ?></td>
-                                <td><?= $c->satuan; ?></td>
-                                <td>
-                                    <button class="btn btn-sm btn-info" id="select" data-id="<?= $c->barang_id; ?>" data-kode="<?= $c->kode; ?>" data-nama="<?= $c->nama; ?>" data-ukuran="<?= $c->ukuran; ?>" data-satuan="<?= $c->satuan; ?>">
-                                        <i class="fa fa-check"></i>Select
-                                    </button>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
 
 
-<?= $this->endSection(); ?>
+        <?= $this->endSection(); ?>

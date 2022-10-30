@@ -57,7 +57,7 @@
                                             <?php $i = 1; ?>
                                             <?php foreach ($sales as $s) : ?>
                                                 <tr>
-                                                    <th scope="row"><?= $i++; ?></th>
+                                                    <td scope="row"><?= $i++; ?></td>
                                                     <td><?= $s->kode_sales; ?></td>
                                                     <td><?= $s->nama_sales; ?></td>
                                                     <td><?= $s->type; ?></td>
